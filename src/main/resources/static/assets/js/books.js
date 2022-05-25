@@ -4,7 +4,7 @@ $('document').ready(function(){
         var href = $(this).attr('href');
 
         $.get(href, function(book, status) {
-            console.log("button clicked");
+            $('#idEdit').val(book.id);
             $('#titleEdit').val(book.title);
             $('#authorEdit').val(book.author);
             $('#categoryEdit').val(book.category);

@@ -447,7 +447,8 @@
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                             <button type="button" class="btn btn-primary">View</button>
-                                            <a th:href="@{/books/edit/{id}(id=${book.id})}" class="btn btn-warning" id="editButton">Edit</a>
+                                            <a th:href="@{/books/findById/(id=${book.id})}" class="btn btn-warning" id="editButton">Edit</a>
+<!--                                        <a th:href="@{/books/edit/{id}(id=${book.id})}" class="btn btn-warning" id="editButton">Edit</a>-->
                                             <a th:href="@{/books/delete/{id}(id=${book.id})}" class="btn btn-danger" id="deleteButton">Delete</a>
                                         </div>
                                     </td>
@@ -532,6 +533,76 @@
         </div>
     </div><!-- End Add Modal-->
 
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Book</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Floating Labels Form -->
+                    <form th:action="@{/books/update}" method="put" class="row g-3">
+                        <div class="col-md-12">
+                            <div class="form">
+                                <label for="idEdit">Book ID</label>
+                                <input type="text" class="form-control" id="idEdit" name="id" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form">
+                                <label for="titleEdit">Title</label>
+                                <input type="text" class="form-control" id="titleEdit" name="title" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form">
+                                <label for="authorEdit">Author</label>
+                                <input type="text" class="form-control" id="authorEdit" name="author" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form">
+                                <label for="categoryEdit">Category</label>
+                                <input type="text" class="form-control" id="categoryEdit" name="category" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form">
+                                <label for="publisherEdit">Publisher</label>
+                                <input type="text" class="form-control" id="publisherEdit" name="publisher" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form">
+                                <label for="editionEdit">Edition</label>
+                                <input type="text" class="form-control" id="editionEdit" name="edition" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form">
+                                <label for="priceEdit">Price</label>
+                                <input type="text" class="form-control" id="priceEdit" name="price" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form">
+                                <label for="copiesEdit">Quantity</label>
+                                <input type="number" class="form-control" id="copiesEdit" name="copies" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Update</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </form><!-- End floating Labels Form -->
+                </div>
+            </div>
+        </div>
+    </div><!-- End Edit Modal-->
+
     <!-- Vendor JS Files -->
     <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -544,9 +615,8 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
-
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>-->
-<!--    <script src="assets/js/books.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="assets/js/books.js"></script>
 
 </body>
 

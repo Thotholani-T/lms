@@ -19,8 +19,8 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long reservationId;
     @ManyToOne
-    @JoinColumn(name = "bookId", insertable = false, updatable = false)
-    private Book bookId;
+    @JoinColumn(name = "id", insertable = false, updatable = false)
+    private Book id;
     private Date borrowDate;
     private Date returnDate;
     private String status;
