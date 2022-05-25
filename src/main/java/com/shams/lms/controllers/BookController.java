@@ -34,24 +34,6 @@ public class BookController {
         return bookService.findById(id);
     }
 
-//    @GetMapping("/books/edit/{id}")
-//    public String editForm(@PathVariable long id, Model model) {
-//        model.addAttribute("book",bookService.getBookById(id));
-//        return "edit_book";
-//    }
-//
-//    @PostMapping("/books/{id}")
-//    public String update(@ModelAttribute("book") Book book) {
-//        bookService.save(book);
-//        return "redirect:/books";
-//    }
-
-//    @GetMapping("/books/delete/{id}")
-//    public String delete(@ModelAttribute("book") Book book) {
-//        bookService.delete(book);
-//        return "redirect:/books";
-//    }
-
     @RequestMapping(value="/books/update", method =  {RequestMethod.PUT, RequestMethod.GET})
     public String update(Book book) {
         bookService.update(book);
