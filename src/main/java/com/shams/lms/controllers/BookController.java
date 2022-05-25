@@ -46,15 +46,21 @@ public class BookController {
 //        return "redirect:/books";
 //    }
 
-    @GetMapping("/books/delete/{id}")
-    public String delete(@ModelAttribute("book") Book book) {
-        bookService.delete(book);
-        return "redirect:/books";
-    }
+//    @GetMapping("/books/delete/{id}")
+//    public String delete(@ModelAttribute("book") Book book) {
+//        bookService.delete(book);
+//        return "redirect:/books";
+//    }
 
     @RequestMapping(value="/books/update", method =  {RequestMethod.PUT, RequestMethod.GET})
     public String update(Book book) {
         bookService.update(book);
+        return "redirect:/books";
+    }
+
+    @RequestMapping(value="/books/delete", method =  {RequestMethod.DELETE, RequestMethod.GET})
+    public String delete(long id) {
+        bookService.delete(id);
         return "redirect:/books";
     }
 }
