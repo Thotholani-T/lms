@@ -51,7 +51,7 @@ public class MemberController {
         return "redirect:/members";
     }
 
-//    Memeber Actions
+    //Member Actions
     @GetMapping("/catalogue")
     public String catalogue(Model model) {
         List<Book> booksList = bookService.getAllBooks();

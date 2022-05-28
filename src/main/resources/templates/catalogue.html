@@ -440,8 +440,8 @@
                                         <td th:text="${book.publisher}"></td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                                <a th:href="@{/books/findById/(id=${book.id})}" class="btn btn-primary" id="editButton">View</a>
-                                                <a th:href="@{/books/findById/(id=${book.id})}" class="btn btn-success" >Reserve</a>
+                                                <a th:href="@{/books/findById/(id=${book.id})}" class="btn btn-primary" id="viewButton">View</a>
+                                                <a th:href="@{/books/findById/(id=${book.id})}" class="btn btn-success" id="reserveButton">Reserve</a>
                                             </div>
                                         </td>
                                     </tr>
@@ -459,10 +459,71 @@
     </main>
     <!-- End #main -->
 
+    <!-- Confirm Modal -->
+    <div class="modal fade" id="confirmModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Reservation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Floating Labels Form -->
+                    <h5>Are you sure you want to reserve this book?</h5>
+                    <form th:action="@{/catalogue/reserve/}" method="post" class="row g-3">
+                        <div class="col-md-12">
+                            <div class="form">
+                                <label for="id">Book ID</label>
+                                <input type="text" class="form-control" id="id" name="id" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form">
+                                <label for="title">Title</label>
+                                <input type="text" class="form-control" id="title" name="title" required readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form">
+                                <label for="author">Author</label>
+                                <input type="text" class="form-control" id="author" name="author" required readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form">
+                                <label for="category">Category</label>
+                                <input type="text" class="form-control" id="category" name="category" required readonly>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form">
+                                <label for="publisher">Publisher</label>
+                                <input type="text" class="form-control" id="publisher" name="publisher" required readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form">
+                                <label for="edition">Edition</label>
+                                <input type="text" class="form-control" id="edition" name="edition" required readonly>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success" id="confirmReserveButton">Confirm</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                    <!-- End floating Labels Form -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Confirm Modal-->
+
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-    <!-- Edit Modal -->
-    <div class="modal fade" id="editModal" tabindex="-1">
+    <!-- View Modal -->
+    <div class="modal fade" id="viewModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -471,7 +532,7 @@
                 </div>
                 <div class="modal-body">
                     <!-- Floating Labels Form -->
-                    <form th:action="@{/books/update}" method="put" class="row g-3">
+                    <form class="row g-3">
                         <div class="col-md-12">
                             <div class="form">
                                 <label for="idEdit">Book ID</label>
@@ -497,13 +558,13 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form">
                                 <label for="publisherEdit">Publisher</label>
                                 <input type="text" class="form-control" id="publisherEdit" name="publisher" required readonly>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form">
                                 <label for="editionEdit">Edition</label>
                                 <input type="text" class="form-control" id="editionEdit" name="edition" required readonly>
@@ -518,7 +579,7 @@
             </div>
         </div>
     </div>
-    <!-- End Edit Modal-->
+    <!-- End View Modal-->
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
@@ -533,7 +594,7 @@
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="assets/js/books.js"></script>
+    <script src="assets/js/catalogue.js"></script>
 
 </body>
 
