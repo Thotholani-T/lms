@@ -281,7 +281,7 @@
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link"  th:href="@{/}">
+                <a class="nav-link" th:href="@{/}">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
@@ -296,6 +296,11 @@
                     <li>
                         <a th:href="@{/books}">
                             <i class="bi bi-circle"></i><span>Manage Books</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/reservations}" class="active">
+                            <i class="bi bi-circle"></i><span>Manage Reservations</span>
                         </a>
                     </li>
                     <li>
@@ -318,7 +323,7 @@
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a  th:href="@{/members}">
+                        <a th:href="@{/members}">
                             <i class="bi bi-circle"></i><span>Manage Members</span>
                         </a>
                     </li>
@@ -332,7 +337,7 @@
                 </a>
                 <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a  th:href="@{/librarians}">
+                        <a th:href="@{/librarians}">
                             <i class="bi bi-circle"></i><span>Manage Librarians</span>
                         </a>
                     </li>
@@ -346,7 +351,7 @@
                 </a>
                 <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a  th:href="@{/catalogues}">
+                        <a th:href="@{/catalogues}">
                             <i class="bi bi-circle"></i><span>Manage Catalogues</span>
                         </a>
                     </li>

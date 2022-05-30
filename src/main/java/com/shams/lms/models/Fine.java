@@ -20,5 +20,11 @@ public class Fine {
     @ManyToOne
     @JoinColumn(name = "reservationId", insertable = false, updatable = false)
     private Reservation reservation;
+    private Long reservationId;
+
     private double fee;
+
+    public Fine(Long reservationId) {
+        this.reservationId = reservationId;
+    }
 }
